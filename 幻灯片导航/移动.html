@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动</title>
+	<style>
+		ul,li{
+			list-style:none;
+		}
+		.container{
+			width:500px;
+			height: 350px;
+			border:2px solid blue;
+			overflow: hidden;
+			position:relative;
+		}
+		.wrap{
+			width:1500px;
+			height:300px;
+			position:absolute;
+			top:10px;
+			left: 0;
+		}
+		.item{
+			float: left;
+			width:180px;
+			height:260px;
+			background:#E6FFFF;
+			border:1px solid #000;
+			margin:20px 0;
+			margin-right:20px;
+		}
+	</style>
+</head>
+<body>
+	点击中间的框试试
+	<div class="container">
+		<div id="js-wrap" class="wrap">
+			<ul>
+				<li class="item">1</li>
+				<li class="item">2</li>
+				<li class="item">3</li>
+				<li class="item">4</li>
+				<li class="item">5</li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script>
+	var oDiv=document.getElementById("js-wrap");
+	oDiv.onclick=function(){
+		// alert(getStyle(this,"left"));
+		this.style.left=(parseInt(getStyle(this,"left"))-10)+"px";
+	}
+
+	function getStyle(obj,attr){
+		return obj.currentStyle? obj.currentStyle:getComputedStyle(obj)[attr];
+	}
+</script>
+</html>

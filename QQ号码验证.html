@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QQ号码验证</title>
+	<script>
+		window.onload=function(){
+			var oInput=document.getElementById("qq");
+			var oBtn=document.getElementById("btn");
+			oBtn.onclick=function(){
+				var reExp=/\d{4,11}/g;
+				if (oInput.value.search(reExp)==-1) {
+					alert("输错了！");
+					alert(oInput.value.search(reExp));
+				}
+				else{
+					alert(oInput.value.match(reExp));
+					alert(oInput.value.search(reExp));
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="qq">
+	<input type="button" id="btn" value="提交">
+</body>
+</html>

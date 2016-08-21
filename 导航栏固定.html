@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>导航栏固定</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			width:1000px;
+			height:1000px;
+			margin:10px auto;
+			/*overflow: hidden;*/
+		}
+		header{
+			margin:20px auto;
+			width:1000px;
+			height:40px;
+			/*position:fixed;*/
+			top:0;
+			left:18%;
+			/*overflow: hidden;*/
+		}
+		ul,li{
+			list-style:none;
+		}
+		li{
+			float:left;
+			padding:5px;
+			border:none;
+			margin:5px 10px;
+			cursor:pointer;
+		}
+		li:hover{
+			border-bottom:4px solid #FF3737;
+		}
+		.content{
+			height:800px;
+			background:#ddd;
+		}
+	</style>
+</head>
+<body>
+	<header id="header">
+		<ul>
+			<li>JavaScript高级程序设计</li>
+			<li>HTTP权威指南</li>
+			<li>HTML5程序设计</li>
+			<li>Bootstrap基础教程</li>
+			<li>深入浅出nodejs</li>
+			<li>响应式web设计</li>
+		</ul>
+	</header>
+	<div id="content" class="content">
+		
+	</div>
+</body>
+<script>
+	window.onscroll=function(){
+
+		var header=document.getElementById("header");
+		var content=document.getElementById("content");
+		content.style["marginTop"]="80px";
+		header.style.position="fixed";
+	}
+</script>
+</html>

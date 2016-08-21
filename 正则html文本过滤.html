@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则好html文本过滤</title>
+	<script>
+		window.onload=function(){
+			var Otext1=document.getElementById("source");
+			var Obtn=document.getElementById("convert");
+			var Otext2=document.getElementById("result");
+			Obtn.onclick=function(){
+				var reExp=/<[^<>]+>/g;
+				alert(Otext1.value);
+				alert(Otext1.value.search(reExp));
+				Otext2.value=Otext1.value.replace(reExp,"****");
+			}
+		}
+	</script>
+</head>
+<body>
+	<textarea name="source" id="source" cols="30" rows="10"></textarea>
+	<button id="convert">过滤</button>
+	<textarea name="result" id="result" cols="30" rows="10"></textarea>
+</body>
+</html>

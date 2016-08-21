@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>幻灯片导航</title>
+	<link rel="stylesheet" href="navi.css">
+</head>
+<body>
+	<div id="powerPoint" class="container">
+		<div id="js-picShow" class="img-show">
+			<!-- <img  class="details" src="img/pic_1.jpg" alt=""> -->
+		</div>
+		<div class="navi">
+			<p id="js-navi-title" class="navi-title">《武则天》</p>
+			<div class="navi-window">
+				<div id="js-navi-content" class="navi-content">
+				</div>
+			</div>
+			
+		</div>
+		<div class="navi-move">
+			<span id="left">《</span> <span id="right">》</span>
+		</div>
+	</div>
+</body>
+<script>
+	var oPic=document.getElementById("js-picShow");
+	var oTitle=document.getElementById("js-navi-title");
+	var oNavicontent=document.getElementById("js-navi-content");
+	var oLeft=document.getElementById("left");
+	var oRight=document.getElementById("right");
+	var arrNavi=["ico_1.jpg","ico_2.jpg","ico_3.jpg","ico_4.jpg","ico_5.jpg","ico_6.jpg","ico_7.jpg","ico_8.jpg"];
+	var arrDetails=["pic_1.jpg","pic_2.jpg","pic_3.jpg","pic_4.jpg","pic_5.jpg","pic_6.jpg","pic_7.jpg","pic_8.jpg"];
+	var num=0;
+	var len=arrNavi.length;
+	var img_navi="";
+	oNavicontent.style.width=(arrNavi.length*75)+"px";
+	for (var i = 0; i < len; i++) {
+		//给导航添加图片
+		var newNavi=document.createElement("img");
+			newNavi.src="img/"+arrNavi[i];
+
+			oNavicontent.appendChild(newNavi);
+
+		//加载导航的大图片
+		var naviDetails=document.createElement("img");
+			naviDetails.src="img/"+arrDetails[i];
+			naviDetails.style.display="none";
+			if (i==0) {
+				naviDetails.style.display="inline";
+			}
+			oPic.appendChild(naviDetails);
+
+	}
+	//给每个导航添加标识属性，发生点击时间的时候，改变Picdetails
+	var aImg=oNavicontent.getElementsByTagName("img");
+	var aImgDetails=oPic.getElementsByTagName("img");
+	for (var i = 0; i < aImg.length; i++) {
+		aImg[i].index=i;
+	}
+
+	oNavicontent.addEventListener("click",function(ev){
+		var event=ev||event;
+		var target=event.target;
+		// alert(target.index);
+
+		for (var i = 0; i < aImgDetails.length; i++) {
+			aImgDetails[i].style.display="none";
+		}
+		aImgDetails[target.index].style.display="inline";
+		oTitle.innerHTML=arrDetails[target.index];
+	},false);
+
+	oLeft.onclick=function(){
+		oNavicontent.style.left=(parseInt(getStyle(oNavicontent,"left"))-73)+"px";
+	}
+	oRight.onclick=function(){
+		oNavicontent.style.left=(parseInt(getStyle(oNavicontent,"left"))+73)+"px";
+	}
+
+	function getStyle(obj,attr){
+		return obj.currentStyle? obj.currentStyle:getComputedStyle(obj)[attr];
+	}
+</script>
+</html>

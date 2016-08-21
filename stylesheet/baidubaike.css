@@ -1,0 +1,21 @@
+*{
+	margin:none;
+	padding:none;
+}
+
+ul{
+	position:fixed;
+	top:50px;
+	right:20px;
+	width:250px;
+	height:300px;
+	background: #C7CCD0;
+	border:1px solid blue;
+}
+
+.items{
+	height:15%;
+	width:100%;
+	line-height:15%;
+	margin:5% 0px;
+}
