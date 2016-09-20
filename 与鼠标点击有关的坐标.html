@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>与鼠标有关点击有关的坐标</title>
+	<style>
+		div{
+			width:100px;
+			height:100px;
+			position:absolute;
+			left:0px;
+			top:0px;
+			background:red;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+
+</body>
+<script>
+// 	document.getElementById("div1").onclick=function(ev){
+// 		var ev=ev||event;
+// 		alert("点击位置到当前div左上角的距离："+ev.offsetX+","+ev.offsetY+"\n"+"点击位置到可视区左上角的距离："+ev.clientX+","+ev.clientY+"\n点击位置到屏幕左上角的距离："+ev.screenX+","+ev.screenY);
+// 		// alert("dian");
+// }
+	document.body.onclick=function(ev){
+		var ev=ev||event;
+		alert("点击位置到当前div左上角的距离："+ev.offsetX+","+ev.offsetY+"\n"+"点击位置到可视区左上角的距离："+ev.clientX+","+ev.clientY+"\n点击位置到屏幕左上角的距离："+ev.screenX+","+ev.screenY);
+		// alert("dian");
+}
+</script>
+</html>
