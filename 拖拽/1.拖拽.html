@@ -27,7 +27,7 @@ window.onload=function(){
 					oDiv.style.top=event.clientY-disY+"px";
 				}
 			document.onmouseup=function(){
-				oDiv.onmouseup=document.onmousemove=null;
+				document.onmouseup=document.onmousemove=null;
 			}
 			
 		}
