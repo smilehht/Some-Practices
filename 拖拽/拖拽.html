@@ -14,22 +14,24 @@
 <script>
 window.onload=function(){
 	var oDiv=document.getElementById("div1");
-	oDiv.onmouseover=function(ev){
-		var event=ev||event;
+	// oDiv.onmouseover=function(ev){
 
 		oDiv.onmousedown=function(ev){
-			// alert('1');
 			var event=ev||event;
 			var disX=event.clientX-this.offsetLeft;
-			var disY=event.clientX-this.offsetTop;
-			// alert("X:"+disX+",Y:"+disY);
-			oDiv.style.top=disY+"px";
-			oDiv.style.left=disX+"px";
+			var disY=event.clientY-this.offsetTop;
+
+			document.onmousemove=function(ev){
+					var event=ev||event;
+					oDiv.style.left=event.clientX-disX+"px";
+					oDiv.style.top=event.clientY-disY+"px";
+				}
+			document.onmouseup=function(){
+				oDiv.onmouseup=document.onmousemove=null;
+			}
+			
 		}
-		oDiv.onmouseup=function(){
-			oDiv.onmousedown=null;
-		}
-	}
+	// }
 }
 </script>
 </head>

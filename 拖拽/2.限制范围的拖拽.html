@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>限制范围的拖拽</title>
+	<style>
+		#div1{
+			height:200px;
+			width:200px;
+			background:green;
+			position:absolute;
+			left:200px;
+			top:100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+<script>
+	window.onload=function(){
+		var oDiv=document.getElementById("div1");
+		oDiv.onmousedown=function(ev){
+			var ev=ev||event;
+			var disX=ev.clientX-this.offsetLeft;
+			var disY=ev.clientY-this.offsetTop;
+
+			document.onmousemove=function(){
+				var ev=ev||event;
+
+				var T=ev.clientY-disY;
+				var L=ev.clientX-disX;
+				if(T<0){
+					T=0;
+				}else if(T>document.documentElement.clientHeight-oDiv.offsetHeight){
+					T=document.documentElement.clientHeight-oDiv.offsetHeight;
+				}
+				if(L<0){
+					L=0;
+				}else if(L>document.documentElement.clientWidth-oDiv.offsetWidth){
+					L=L>document.documentElement.clientWidth-oDiv.offsetWidth;
+				}
+
+				oDiv.style.top=T+"px";
+				oDiv.style.left=L+"px";
+			}
+
+			document.onmouseup=function(){
+				document.onmousemove=oDiv.onmouseup=null;
+			}
+		}
+	}
+</script>
+</html>

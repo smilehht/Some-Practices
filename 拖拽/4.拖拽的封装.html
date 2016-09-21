@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽的封装</title>
+	<style>
+		div{
+			height:200px;
+			width:200px;
+			background:green;
+			position:absolute;
+			left:200px;
+			top:100px;
+		}
+		#div2{
+			left:100px;
+			background:red;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+</body>
+<script>
+	window.onload=function(){
+		var oDiv1=document.getElementById("div1");
+		var oDiv2=document.getElementById("div2");
+
+		drag(oDiv1,100);
+		drag(oDiv2,50);
+		//obj拖动对象，distance吸附距离
+		function drag(obj,distance){
+
+			obj.onmousedown=function(ev){
+				var ev=ev||event;
+				var disX=ev.clientX-this.offsetLeft;
+				var disY=ev.clientY-this.offsetTop;
+
+				document.onmousemove=function(){
+					var ev=ev||event;
+
+					var T=ev.clientY-disY;
+					var L=ev.clientX-disX;
+					if(T<distance){
+						T=0;
+					}else if(T>document.documentElement.clientHeight-obj.offsetHeight-distance){
+						T=document.documentElement.clientHeight-obj.offsetHeight;
+					}
+					if(L<distance){
+						L=0;
+					}else if(L>document.documentElement.clientWidth-obj.offsetWidth-distance){
+						L=document.documentElement.clientWidth-obj.offsetWidth;
+					}
+
+					obj.style.top=T+"px";
+					obj.style.left=L+"px";
+				}
+
+				document.onmouseup=function(){
+					document.onmousemove=obj.onmouseup=null;
+				}
+			}
+		}
+
+
+	}
+</script>
+</html>
