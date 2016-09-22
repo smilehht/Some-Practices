@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟滚动条滚动</title>
+	<style>
+		#div1{
+			width:20px;
+			height:500px;
+			background:red;
+			position:absolute;
+			left:20px;
+			top:20px;
+		}
+		#div2{
+			width:20px;
+			height:20px;
+			background:#C1C1C1;
+			position:absolute;
+			left:20px;
+			top:20px;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+</body>
+<script>
+	var oDiv1=document.getElementById("div1");
+	var oDiv2=document.getElementById("div2");
+	oDiv2.onmousedown=function(ev){
+
+		var ev=ev||event;
+
+		var disY=ev.clientY-this.offsetTop;
+
+		document.onmousemove=function(ev){
+
+			var ev=ev||event;
+
+			var top=ev.clientY-disY;
+			if(top<oDiv1.offsetTop){
+				top=oDiv1.offsetTop;
+			}else if(top>oDiv1.offsetTop+oDiv1.offsetHeight-oDiv2.offsetHeight)
+			{
+				top=oDiv1.offsetTop+oDiv1.offsetHeight-oDiv2.offsetHeight;
+			}
+			oDiv2.style.top=top+"px";
+		}
+
+		document.onmouseup=function(){
+			document.onmousemove=document.onmouseup=null;
+		}
+	}
+</script>
+</html>

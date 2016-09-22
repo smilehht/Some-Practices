@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟拖动内容</title>
+	<style>
+		#div1{
+			position:absolute;
+			left:20px;
+			top:20px;
+			width:20px;
+			height:500px;
+			background:red;
+			position:absolute;
+			left:20px;
+			top:20px;
+		}
+		#div2{
+			position:absolute;
+			left:20px;
+			top:20px;
+			width:20px;
+			height:20px;
+			background:#C1C1C1;
+		}
+		#div3{
+			position:relative;
+			margin-left:100px;
+			width:500px;
+			height:550px;
+			overflow:hidden;
+			border:1px solid red;
+			text-align:center;
+		}
+		#div4{
+			width:300px;
+			height:1000px;
+			/*margin-left:100px;*/
+			border:2px solid green;
+			position:absolute;
+			top:0;
+			left:100px;
+			overflow:hidden;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3">
+		<div id="div4">
+			<img src="1.jpg" alt="">
+		</div>
+	</div>
+</body>
+<script>
+	var oDiv1=document.getElementById("div1");
+	var oDiv2=document.getElementById("div2");
+	var oDiv3=document.getElementById("div3");
+	var oDiv4=document.getElementById("div4");
+	oDiv2.onmousedown=function(ev){
+
+		var ev=ev||event;
+
+		var disY=ev.clientY-this.offsetTop;
+
+		document.onmousemove=function(ev){
+
+			var ev=ev||event;
+
+			var top=ev.clientY-disY;
+			var iscale=0;
+
+			if(top<oDiv1.offsetTop){
+				top=oDiv1.offsetTop;
+				iscale=0;
+
+			}else if(top>oDiv1.offsetTop+oDiv1.offsetHeight-oDiv2.offsetHeight)
+			{
+				top=oDiv1.offsetTop+oDiv1.offsetHeight-oDiv2.offsetHeight;
+				iscale=1;
+			}
+			else {
+
+				iscale=top/oDiv1.offsetHeight;
+			}
+
+			oDiv2.style.top=top+"px";
+
+			document.title = iscale;
+			console.log(iscale+","+(oDiv4.offsetHeight-oDiv3.offsetHeight));
+			oDiv4.style.top=-(oDiv4.offsetHeight+3-oDiv3.offsetHeight)*iscale +"px";
+
+
+		}
+
+		document.onmouseup=function(){
+			document.onmousemove=document.onmouseup=null;
+		}
+	}
+</script>
+</html>
