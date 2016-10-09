@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<input type="button" value="模拟跨域">
+
+</body>
+<script>
+	alert(document.domain);
+	function alert1(str){
+		alert(str);
+	}
+	document.getElementsByTagName("input")[0].onclick=function(){
+
+		var obj=document.createElement("script");
+		obj.src="1.js";
+		document.body.appendChild(obj);
+	}
+</script>
+</html>
