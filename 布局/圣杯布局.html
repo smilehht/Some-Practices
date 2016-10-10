@@ -3,8 +3,46 @@
 <head>
 	<meta charset="UTF-8">
 	<title>圣杯布局</title>
+	<style>
+		.header{
+			width:100%;
+			height:200px;
+			background:green;
+		}
+		.container{
+			/*overflow: hidden;*/
+			height:300px;
+		}
+		.sub{
+			float:left;
+			width:100px;
+			height:180%;
+			background: red;
+		}
+		.mian{
+			overflow:hidden;
+			height:100%;
+			background:yellow;
+		}
+		.extra{
+			float:right;
+			width:100px;
+			height:80%;
+			background:gray;
+		}
+		.footer{
+			height:200px;
+			background:pink;
+		}
+	</style>
 </head>
 <body>
-	
+	<div class="header">header</div>
+	<div class="container">
+		<div class="sub">sub</div>
+		<div class="extra">extra</div>
+		<div class="mian">mian</div>
+	</div>
+	<div class="footer">footer</div>
 </body>
 </html>
