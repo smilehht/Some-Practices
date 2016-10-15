@@ -106,6 +106,7 @@
 					classname="p2";
 				}
 				Odiv1.innerHTML += " <p class="+classname+"><img class='img1' src="+src+">：" + Otext.value+"</p>" ;
+				//如果出现滚动条，让最下面的聊天信息显示在可视区内
 				Odiv3.scrollTop=Odiv1.scrollHeight;
 				Otext.focus();
 				Otext.value = '';
