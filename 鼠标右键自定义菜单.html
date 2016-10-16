@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		ul,li{
+			list-style:none;
+		}
+		body{
+			width:300px;
+			height:300px;
+			margin:100px auto;
+		}
+		.main{
+			background:#8AC007;
+			height:100%;
+			font-size: 40px;
+			color:#fff;
+		}
+		.menu{
+			display: none;
+			position:absolute;
+			width:100px;
+
+		}
+		.menu li{
+			height:30px;
+			line-height:30px;
+			font-size: 14px;
+			font-weight:bold;
+			border:1px solid #999;
+			background:#AAA;
+			text-align: center;
+		}
+		.menu li a{
+			text-decoration:none;
+			color:#fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="main" class="main">点击右键试试</div>
+	<div id="menu"  class="menu">
+		<ul>
+			<li><a href="#">查看</a></li>
+			<li><a href="#">排列方式</a></li>
+			<li><a href="#">刷新</a></li>
+			<li><a href="#">新建</a></li>
+			<li><a href="#">删除</a></li>
+		</ul>
+	</div>
+</body>
+<script>
+	var main=document.getElementById("main");
+	var menu=document.getElementById("menu");
+	//在区域内设置右键点击操作
+	main.oncontextmenu=function(ev){
+		menu.style.display="block";
+		var ev=ev||event;
+		// console.log(ev.clientY+","+ev.clientX);
+		menu.style.top=(ev.clientY+10)+"px";
+		menu.style.left=(ev.clientX+10)+"px";
+		return false;
+	}
+	//取消右键右键点击操作
+	document.body.addEventListener("click",function(){
+		menu.style.display="none";
+	},false);
+	//取消在右键菜单上的右键操作,否则的话在右键弹出菜单上，再点击右键的话，会弹出系统菜单
+	menu.oncontextmenu=function(){
+		return false;
+	}
+
+</script>
+</html>
