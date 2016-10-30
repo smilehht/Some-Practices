@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>transform for 3D</title>
+	<style>
+		.box{
+			width:100px;
+			height:100px;
+			margin:50px;
+			color:#fff;
+			transition:transform 1000ms,opacity 1s,height 1s;
+			transform:rotateZ(2deg);
+			/*transform:rotate(60deg,60deg);*/
+			background: #92B901;
+			opacity:0.4;
+			border:1px solid green;
+		}
+		.box:hover{
+			/*height:200px;*/
+			background:#1ec7e6;
+			opacity:1;
+			-webkit-transform:rotate(100deg);
+			transform:rotate(360deg);
+		}
+	</style>
+</head>
+<body>
+	<p class="box">
+		今天天气真冷啊！都要穿秋裤了
+	</p>
+</body>
+</html>
