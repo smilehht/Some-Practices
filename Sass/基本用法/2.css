@@ -8,4 +8,10 @@ body {
   margin: 20px auto;
   border: 1px #E6E6E6 solid; }
 
+.border-top {
+  width: 100px;
+  color: #08c; }
+  .border-top:hover {
+    color: #333; }
+
 /*# sourceMappingURL=2.css.map */
