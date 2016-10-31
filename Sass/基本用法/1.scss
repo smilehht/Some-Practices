@@ -106,6 +106,15 @@ p{
 
 //三木运算符
 $type:1;
-.header{
-	@if ( type == 1, 2px,3px) 
-} 
+// .header{
+// 	@if ( type == 1, 2px,3px) 
+// } 
+
+@mixin left{
+	float:left;
+	margin:20px;
+}
+
+div{
+	@include left;
+}
