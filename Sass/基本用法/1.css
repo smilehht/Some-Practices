@@ -1,0 +1,68 @@
+/*
+Error: Invalid CSS after "	@if ( type == 1, ": expected ")", was "{"
+        on line 110 of 1.scss
+
+105: }
+106: 
+107: //三木运算符
+108: $type:1;
+109: .header{
+110: 	@if ( type == 1, {
+111: 		color:red; background:blue;
+112: 		},{
+113: 			color:red;
+114: 			background:yellow;
+115: 			}
+
+Backtrace:
+1.scss:110
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1189:in `expected'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/lexer.rb:229:in `expected!'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:711:in `assert_tok'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:642:in `paren'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:625:in `special_fun'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:619:in `raw'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:533:in `funcall'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:514:in `ident'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:309:in `unary_not'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:309:in `unary_div'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:309:in `unary_minus'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:309:in `unary_plus'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:286:in `times_div_or_mod'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:286:in `plus_or_minus'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:286:in `relational'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:286:in `eq_or_neq'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:286:in `and_expr'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:286:in `or_expr'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:488:in `space'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:434:in `interpolation'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:359:in `expr'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:702:in `assert_expr'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:75:in `parse'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1051:in `sass_script'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:317:in `if_directive'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:222:in `special_directive'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:197:in `directive'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:676:in `block_child'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:665:in `block_contents'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:657:in `block'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:649:in `ruleset'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:675:in `block_child'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:668:in `block_contents'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:125:in `stylesheet'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:41:in `parse'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:406:in `_to_tree'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:298:in `render_with_sourcemap'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:391:in `run'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:63:in `process_result'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/exec/base.rb:52:in `parse'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/exec/base.rb:19:in `parse!'
+D:/ruby/Ruby23/lib/ruby/gems/2.3.0/gems/sass-3.4.22/bin/sass:13:in `<top (required)>'
+D:/ruby/Ruby23/bin/sass:23:in `load'
+D:/ruby/Ruby23/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"	@if ( type == 1, \": expected \")\", was \"{\"\A         on line 110 of 1.scss\A \A 105: }\A 106: \A 107: //三木运算符\A 108: $type:1;\A 109: .header{\A 110: 	@if ( type == 1, {\A 111: 		color:red; background:blue;\A 112: 		},{\A 113: 			color:red;\A 114: 			background:yellow;\A 115: 			}"; }

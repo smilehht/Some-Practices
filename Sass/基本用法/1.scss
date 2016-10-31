@@ -23,11 +23,89 @@ body{
 	margin:20px auto;
 	border: 1px $color $borderStyle;
 }
+
+//样式的嵌套
 .border-#{$borderDirectin}{
+
 	width:100px;
 	color:nth($linkColor,1);
 
 	&:hover{
 		color:nth($linkColor,2);
 	}
+
+	
+	li{
+		float:left;
+		font-size:$fontSize;
+		color:$linkColor;
+
+		&:hover{
+			border:1px solid #cba;
+		}
+	}
+
+
 }
+
+//@at-root 跳出来了
+
+.parent{
+	color:red;
+	@at-root{
+
+		.child{
+			color:green;
+		}
+	}
+}
+
+@media print {
+    .parent1{
+      color:#f00;
+      @at-root(without: all){
+	      	.child1 {
+	        width:200px;
+	      }
+      	} 
+    }
+}
+
+//继承+%占位符（不会产生多余的样式）
+%box{
+	color:#fff;
+	border-bottom:1px solid #eee;
+	&{
+		width:20px;
+	}
+}
+.box1{
+	@extend %box;
+	background:#323;
+}
+
+.box2{
+	@extend %box;
+	font-size:20px;
+}
+
+//if语句——@if
+$position:top;
+
+p{
+	@if $position == header {
+		color: red;
+	}
+	@else if $position == top
+	{
+		background:red;
+		font-size:23px;
+		$position: header !global;
+	}
+}
+
+//三木运算符
+$type:1;
+.header{
+	@if ( type == 1, 2px,3px) 
+} 
