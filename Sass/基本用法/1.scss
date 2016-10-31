@@ -110,11 +110,17 @@ $type:1;
 // 	@if ( type == 1, 2px,3px) 
 // } 
 
-@mixin left{
+//@mixin 重用代码
+@mixin left($value:20px){
 	float:left;
-	margin:20px;
+	margin:$value;
 }
 
 div{
-	@include left;
+	@include left(30px);
+}
+
+//系统函数
+div{
+	lighten(#333,10%);
 }
