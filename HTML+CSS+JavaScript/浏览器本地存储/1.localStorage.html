@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>localStorage</title>
+</head>
+<body>
+	<div id="pageCount"></div>
+	<input type="text" id="name" >
+</body>
+<script>
+	if (localStorage.pageCount) {
+		localStorage.pageCount=Number(localStorage.pageCount)+1;
+	} else {
+		localStorage.pageCount=1;
+	}
+	if (localStorage.name) {
+		document.getElementById("name").value=localStorage.name;
+	}
+	else{
+		localStorage.name=document.getElementById("name").value;
+	}
+	document.getElementById("pageCount").innerHTML=localStorage.pageCount;
+</script>
+</html>
