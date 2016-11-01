@@ -9,6 +9,7 @@
 	<input type="text" id="name" >
 </body>
 <script>
+	//localStorage 自定义属性
 	if (localStorage.pageCount) {
 		localStorage.pageCount=Number(localStorage.pageCount)+1;
 	} else {
@@ -21,5 +22,8 @@
 		localStorage.name=document.getElementById("name").value;
 	}
 	document.getElementById("pageCount").innerHTML=localStorage.pageCount;
+
+	//localStorage.setItem()方法
+	localStorage.setItem("firstVisitTime",new Date());
 </script>
 </html>
