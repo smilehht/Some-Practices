@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -6,12 +6,27 @@
 </head>
 <body>
 	<script type="text/javascript">
-var browser=navigator.appName
+var browser=window.navigator.appName
 var b_version=navigator.appVersion
 var version=parseFloat(b_version)
 document.write("浏览器名称："+ browser)
 document.write("<br />")
 document.write("浏览器版本："+ version)
 </script>
+</body>
+</html> -->
+<html>
+<head>
+<script type="text/javascript">
+function newDoc()
+  {
+  window.location.assign("http://www.w3school.com.cn")
+  }
+</script>
+</head>
+<body>
+
+<input type="button" value="Load new document" onclick="newDoc()" />
+
 </body>
 </html>
