@@ -1,1 +1,6 @@
-alert("1");
+define(function(){
+	function tip(a){
+	alert(a);
+}
+return {tip:tip};
+});

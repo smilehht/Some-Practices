@@ -1,4 +1,4 @@
-define(function(){
+define(['util'],function(util){
 
 	function sum(a,b){
 		return a+b;
@@ -18,6 +18,7 @@ define(function(){
 		return max;
 	};
 
+	util.tip(1);
 
 	return {
 		sum:sum,
