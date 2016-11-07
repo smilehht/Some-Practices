@@ -18,6 +18,7 @@ define(['util'],function(util){
 		return max;
 	};
 
+	//加载其他模块并调用
 	util.tip(1);
 
 	return {
