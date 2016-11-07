@@ -5,7 +5,7 @@ define(function(require,exports,module){
 	exports.sum=function(a,b){
 		return a+b ;
 	}
-
+	//控制台输出
 	exports.log=function(str){
 		console.log(str);
 	}
