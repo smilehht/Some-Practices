@@ -8,9 +8,19 @@
 	
 </body>
 <script src="sea/sea.js"></script>
+<h1>使用SeaJS实现包之间的调用</h1>
+<form action="">
+	<!-- <label for="value1"></label> -->
+	<input type="text" id="value1" name="value1">
+	<label >+</label>
+	<input type="text" id="value2" name="value2">
+	<label >=</label>
+	<label id="sum">?</label>
+	<input type="button" value="sum" class="add">
+</form>
 <script>
 	seajs.use("main",function(main){
-		main.fun(1,3);
+		main.fun();
 	});
 </script>
 </html>
