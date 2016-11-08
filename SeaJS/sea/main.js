@@ -1,10 +1,10 @@
-seajs.config({
-	
-});
+// seajs.config({
+
+// });
 define(function(require,exports,module){
 
 	var math=require("math");
-	var common=require("common");
+	var common=require("helper/common");
 	//调用jquery包
 	var $=require("jquery_sea");
 
