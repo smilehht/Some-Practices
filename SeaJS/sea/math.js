@@ -9,4 +9,6 @@ define(function(require,exports,module){
 	exports.log=function(str){
 		console.log(str);
 	}
+
+
 });
