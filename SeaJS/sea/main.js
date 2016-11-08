@@ -1,3 +1,6 @@
+seajs.config({
+	
+});
 define(function(require,exports,module){
 
 	var math=require("math");
