@@ -18,6 +18,9 @@ define(function(require,exports,module){
 			common.log((sum=math.sum(a,b)));
 			$("#sum").html(sum);
 
+			//判断module.exports==exports否
+			console.log("\"module.exports==exports\":"+(module.exports==exports));
+
 		});
 	}
 
