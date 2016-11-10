@@ -12,7 +12,10 @@ define(function(require,exports,module){
 
 	//比较求较大的值
 	exports.compare=function(a,b){
-		
+		if (a>b) {
+			return a;
+		}
+		return b;
 	}
 
 
