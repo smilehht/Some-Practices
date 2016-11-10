@@ -10,5 +10,10 @@ define(function(require,exports,module){
 		console.log(str);
 	}
 
+	//比较求较大的值
+	exports.compare=function(a,b){
+		
+	}
+
 
 });
