@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		ol{
+			list-style-type:none;
+			counter-reset:sectioncounter;
+		}  
+		ol li:before {  
+		    content:counter(sectioncounter) "、";   
+		    counter-increment:sectioncounter;  
+		}  
+	</style>
+</head>
+<body>
+	<ol>
+		<li>a</li>
+		<li>b</li>
+		<li>c</li>
+		<li>d</li>
+		<li>e</li>
+	</ol>
+</body>
+</html>
