@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box1{
+			width:400px;
+			height:300px;
+			border:1px solid green;
+			margin:50px auto;
+		}
+		.box2{
+			width:200px;
+			height:200px;
+			background:#999;
+			margin:12.5% auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box1" class="box1">
+		<div id="box2"  class="box2"></div>
+	</div>
+</body>
+<script>
+	// var oDiv1=document.getElementById("box1");
+	// var oDiv2=document.getElementById("box2");
+
+	var target = document.getElementById('box1');
+	if (target.addEventListener) {
+	  target.addEventListener('mousemove', mouseoutHandler, false);
+	} else if (target.attachEvent) {
+	  target.attachEvent('onmouseout', mouseoutHandler);
+	}
+
+	function mouseoutHandler(e) {
+	  e = e || window.event;
+	  var target = e.target || e.srcElement;
+
+	  // 判断移出鼠标的元素是否为目标元素
+	  if (target.id !== 'target') {
+	  	console.log("当前鼠标的所在元素:"+target.id);
+	    // return;
+	  }
+
+	  // 判断鼠标是移出元素还是移到子元素
+	  var relatedTarget = event.relatedTarget || e.toElement;
+	  while (relatedTarget !== target
+	    && relatedTarget.nodeName.toUpperCase() !== 'BODY') {
+	    relatedTarget = relatedTarget.parentNode;
+	  }
+
+	  // 如果相等，说明鼠标在元素内部移动
+	  if (relatedTarget === target) {
+	  	console.log("鼠标在元素内部移动");
+	    return;
+	  }
+
+	  // 执行需要操作
+	  //alert('鼠标移出');
+
+	}
+</script>
+</html>
