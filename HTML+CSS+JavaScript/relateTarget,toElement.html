@@ -24,10 +24,9 @@
 	</div>
 </body>
 <script>
-	// var oDiv1=document.getElementById("box1");
-	// var oDiv2=document.getElementById("box2");
 
 	var target = document.getElementById('box1');
+	var i=0;
 	if (target.addEventListener) {
 	  target.addEventListener('mousemove', mouseoutHandler, false);
 	} else if (target.attachEvent) {
@@ -39,21 +38,18 @@
 	  var target = e.target || e.srcElement;
 
 	  // 判断移出鼠标的元素是否为目标元素
-	  if (target.id !== 'target') {
-	  	console.log("当前鼠标的所在元素:"+target.id);
-	    // return;
-	  }
+	  console.log("当前鼠标的所在元素:"+target.id);
 
-	  // 判断鼠标是移出元素还是移到子元素
-	  var relatedTarget = event.relatedTarget || e.toElement;
-	  while (relatedTarget !== target
-	    && relatedTarget.nodeName.toUpperCase() !== 'BODY') {
-	    relatedTarget = relatedTarget.parentNode;
-	  }
+	  // 判断鼠标是移出元素还是移到子元素，relatedTarget：返回与事件的目标节点相关的节点。
+	  var relatedTarget = event.relatedTarget || e.toElement;	//toElement为了兼容IE
+	  // while (relatedTarget !== target
+	  //   && relatedTarget.nodeName.toUpperCase() !== 'BODY') {
+	  //   relatedTarget = relatedTarget.parentNode;
+	  // }
 
 	  // 如果相等，说明鼠标在元素内部移动
 	  if (relatedTarget === target) {
-	  	console.log("鼠标在元素内部移动");
+	  	console.log("鼠标在元素内部移动"+(i++)); 
 	    return;
 	  }
 
