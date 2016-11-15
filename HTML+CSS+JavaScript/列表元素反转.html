@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>列表元素反转</title>
+</head>
+<body>
+	<ul id="target">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+</body>
+<script>
+    var target = document.getElementById('target');
+    var i;
+    var frag = document.createDocumentFragment();
+
+    for (i = target.children.length - 1; i >= 0; --i) {
+        frag.appendChild(target.children[i]);
+    }
+    target.appendChild(frag);
+</script>
+</html>
