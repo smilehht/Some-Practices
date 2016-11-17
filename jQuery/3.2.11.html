@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script type="text/javascript" src="script/jquery.js"></script>
+<body>
+<!-- title="this is a div" -->
+	<div title="this is a div"   style="width:100px;height:100px;background-color: red"></div>
+	<!-- <div title="this is a div"   style="position:absolute;top:10px;left:20px;width:100px;height:100px;background-color: green"></div> -->
+	<input type="text" style="width: 100px;">
+</body>
+<script>
+	var $body=$("body").children();
+	// alert($body.length);
+	// alert($body[0].tagName);
+	// alert($body[1].tagName);
+	// alert($body[2].tagName);
+	 //alert($("input").css("width","200px"));
+	// $("body").css("opacity","0.5");
+	 $("div").mouseover(function(event){
+	 		//alert($(this).attr("title"));
+	 		var $div=$("<div id='tool' >"+$(this).attr("title")+"</div>");
+	 		$("body").append($div);
+	 		$("#tool").css("position","absolute");
+	 		//alert(event.pageY);
+	 		$("#tool").css({"top":event.pageY+10+"px","left":event.pageX+10+"px"}).show("fast");
+	 		//alert($("#tool").css("left"));
+	 }
+	 ).mouseout(function(){
+	 		$("#tool").remove();
+	 });
+</script>
+</html>
