@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.int{margin-bottom: 3px;}
+	</style>
+</head>
+<script src="script/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+// $(function(){
+// // $("username").blur(function(){
+
+// // 	});
+// });
+	$(function(){
+		$("#username").blur(function(){
+			if(this.value==""){
+				// alert("123");
+				var errorMsg="请输入用户名！"
+				$(this).parent().append("<span class='errorMsg'>"+errorMsg+"</span>");
+				document.write("111");
+				document.close();
+			}
+			else{
+				$(".errorMsg").remove();
+			}
+		});
+	});
+</script>
+<body>
+	<div>
+		<div class="int">
+			<label for="">用户名：</label>
+			<input type="text" id="username">
+		</div>
+		<div class="email">
+			<label for="">邮&nbsp箱：</label>
+			<input type="text" id="email">
+		</div>
+	</div>
+</body>
+</html>
