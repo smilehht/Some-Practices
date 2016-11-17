@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	#panel{width: 310px;border: black 1px solid;}
+	.head{border-bottom:#E3E2E3 1px solid;background-color: #E3E2E3;margin: 0;}
+	.content{display:none;}
+	</style>
+</head>
+<script src="script/jquery.js" type="text/javascript"></script>
+<body>
+	<div id="panel">
+		<h3 class="head">什么是FAQ？</h3>
+		<div class="content" >FAQ是英文Frequently Asked Questions的缩写，中文意思就是“经常问到的问题”，                    或者更通俗地叫做“常见问题解答”。</div>
+	</div>
+</body>
+<script>
+	$(function(){
+		// $("#panel h5.head").bind("click",function(){
+		// 	if($(this).next().is(":visible"))
+		// 	{
+		// 		$(this).next().hide();
+		// 	}else{
+
+		// 		$(this).next().show();
+		// 	}
+		// });	
+
+	// 	$("#panel h3.head").bind("mouseover",function(){
+
+	// 			$(this).next().show();
+
+	// 	}).bind("mouseout",function(){
+
+	// 			$(this).next().hide();
+
+	// });
+
+	$("#panel").hover(function(){
+		$(this).children(0).next().show();
+	},function(){
+		$(this).children(0).next().hide();
+	});
+
+
+
+});
+</script>
+</html>
