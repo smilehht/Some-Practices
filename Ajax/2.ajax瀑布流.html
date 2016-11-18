@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax瀑布流</title>
+	<style>
+		ul,li{
+			list-style:none;
+		}
+		body{
+			margin:0 auto;
+			width: 1050px;
+			overflow: auto;
+		}
+		li{
+			float:left;
+			width:250px;
+		}
+		li div,li p{
+			margin-right:20px;
+			width:200px;
+		}
+		li img{
+			width:200px;
+		}
+	</style>
+</head>
+<body>
+	<ul id="ul1">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+<script>
+	var oUl=document.getElementById("ul1");
+	var aLi=oUl.getElementsByTagName("li");
+	var ali_length=aLi.length;
+	xh=null;
+	if(window.XMLHttpRequest){
+		xh=new XMLHttpRequest();
+	}
+	else{
+		xh=new ActiveXObject("Microsoft.XMLHttpRequest");
+	}
+	xh.open("get","getPics.php",true);
+	xh.send();
+	xh.onreadystatechange=function(){
+		if(xh.readyState==4&&xh.status==200)
+		{
+			//开始Ajax的返回数据的处理
+			render(xh.responseText);
+		}
+	}
+
+	function render(data){
+		var content=JSON.parse(data);
+		for (var i = 0; i < content.length; i++) {
+			//找出高度最短的li
+			var short=getShortLi();
+			// var short=0;
+			//将当前的图片信息放入到高度最短的li中
+			var div=document.createElement("div");
+			var img=document.createElement("img");
+			img.src=content[i].image;
+			var p=document.createElement("p");
+			p.innerText=content[i].title;
+			div.appendChild(img);
+			div.appendChild(p);
+			aLi[short].appendChild(div);
+
+		}
+	}
+
+	//找出高度最短的li
+	function getShortLi(){
+		var index=0;
+		var height=aLi[index].offsetHeight;
+		for (var i = 1; i < aLi.length; i++) {
+			if(aLi[i].offsetHeight<height){
+				index=i;
+				height=aLi[index].offsetHeight;
+			}
+		}
+		return index;
+	}
+</script>
+</html>
