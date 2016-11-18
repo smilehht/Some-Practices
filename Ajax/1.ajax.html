@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax练习</title>
+</head>
+<body>
+	<input id="button" type="button" value="ajax测试">
+	<ul id="ul"></ul>
+</body>
+<script>
+	var btn=document.getElementById("button");
+	btn.onclick=function(){
+	//浏览器的兼容性处理
+	if (window.XMLHttpRequest) {
+			//非IE浏览器
+			var xh=new XMLHttpRequest();
+		}
+		else{
+			//IE浏览器
+			var xh=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		//初始化一个XMLHttp对象
+		xh.open("GET","getNews.php"+"?"+(new Date().getTime()),true);
+		//将请求发送到服务器
+		xh.send();
+		//如果readState发生变化
+		//ReadyState取值 描述 
+		// 0  描述一种"未初始化"状态；此时，已经创建一个XMLHttpRequest对象，但是还没有初始化。 
+		// 1  描述一种"发送"状态；此时，代码已经调用了XMLHttpRequest open()方法并且XMLHttpRequest已经准备好把一个请求发送到服务器。 
+		// 2  描述一种"发送"状态；此时，已经通过send()方法把一个请求发送到服务器端，但是还没有收到一个响应。 
+		// 3  描述一种"正在接收"状态；此时，已经接收到HTTP响应头部信息，但是消息体部分还没有完全接收结束。 
+		// 4  描述一种"已加载"状态；此时，响应已经被完全接收。 
+		xh.onreadystatechange=function(){
+			//status为浏览器的Http状态码
+			if (xh.readyState==4&&xh.status==200) {
+				var str=JSON.parse(xh.responseText);
+				render(str);
+			}
+		}
+
+	}
+
+	function render(data){
+		alert(data);
+		var oUl=document.getElementById("ul");
+		var html="";
+		for (var i = 0; i < data.length; i++) {
+			html+='<li>'+data[i].title+'<span style=\'color:green;\'>'+data[i].date+'</span></li>'
+		}
+		oUl.innerHTML=html;
+	}
+</script>
+</html>
