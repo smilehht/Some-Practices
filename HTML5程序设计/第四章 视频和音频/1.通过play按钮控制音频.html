@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<audio src="小幸运.mp3" id="clickSound"></audio>
+	<button id="toggle" onclick="toggleSound()">点我试试</button>
+</body>
+<script>
+function toggleSound(){
+	var sound=document.getElementById("clickSound");
+	var toggle=document.getElementById("toggle");
+
+	if(sound.paused){
+		sound.play();
+		toggle.innerHTML="点我试试"
+	}
+	else{
+		sound.pause();
+		toggle.innerHTML="再点试试";
+	}
+}
+
+</script>
+</html>

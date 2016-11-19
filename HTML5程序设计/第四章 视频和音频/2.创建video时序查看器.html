@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建视频时序查看器</title>
+</head>
+<body>
+	<video src="青花瓷_hht.mp4" id="movies" autoplay oncanplay="startVideo()" onended="stopTimeline()" autobuffer="true" width="400px" height="300px"></video>
+	<canvas id="timeline" width="400px" height="300px"></canvas>
+</body>
+<script>
+	//时间线帧更新间隔的毫秒数
+	var updateInterval=5000;
+
+	//时间线帧的大小
+	var frameWidth=100;
+	var frameHeight=75;
+
+	//时间线帧的数量
+	var frameRows=4;
+	var frameColumns=4;
+	var frameGrid=frameRows*frameColumns;
+
+	//当前帧
+	var frameCount=0;
+
+	//在播放结束是取消计时器
+	var intervalId=null;
+	var videoStarted=false;
+
+	//
+	function startVideo(){
+
+		//只在首先打开视频时
+		//设置定时器
+		if(videoStarted){
+			return ;
+		}
+
+		//计算初始帧，然后按固定的时间间隔创建其他帧
+		updateFrame();
+		intervalId=setInterval(updateFrame, updateInterval);
+
+		//单击帧时设置处理器搜索视频
+		var timeline=document.getElementById("timeline");
+		timeline.onclick=function(event){
+			var offX=event.layerX-timeline.offsetLeft;
+			var offY=event.layerY-timeline.offsetTop;
+
+			//从索引0开始计算单机的是网格的那一帧
+			var clickFrame=Math.floor(offY/frameHeight)*frameRows;
+			clickFrame+=Math.floor(offX/frameWidth);
+
+			//开启视频后，找到实际的帧
+			var seekedFrame=(((Math.floor(frameCount/frameCount))*frameGrid)+clickFrame);
+
+			//如果用户点击当前画面的帧，那么假设它是最后一帧
+			if (clickFrame>(frameCount%16)) {
+				seekedFrame-=frameGrid;
+			}
+
+			//不能在视频播放前搜索
+			if(seekedFrame<0){
+				return ;
+			}
+
+			//搜索视频到哪一帧
+			var video=document.getElementById("movies");
+			video.currentTime=seekedFrame*updateInterval / 1000;
+
+			//然后将帧数设置给目标
+			frameCount=seekedFrame;
+		}
+	}
+
+	//canvas上绘制视频帧的表示
+	function updateFrame(){
+		var video=document.getElementById("movies");
+		var timeline=document.getElementById("timeline");
+
+		var ctx=timeline.getContext("2d");
+
+		//根据帧数计算当前位置，然后使用视频在那儿绘制图像作为帧
+		var framePosition=frameCount%frameGrid;
+		var frameX=(framePosition%frameColumns)*frameWidth;
+
+		var frameY=(Math.floor(framePosition/frameRows))*frameHeight;
+		ctx.drawImage(video,0,0,400,300,frameX,frameY,frameY,frameWidth,frameHeight);
+		frameCount++;
+
+
+	}
+	//停止收集时间线帧
+	function stopTimeline(){
+		clearInterval(intervalId);
+	}
+</script>
+</html>
