@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制树冠轮廓</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="graph" style="border:1px solid #000;"></canvas>
+</body>
+<script>
+function createCanopyPath(context){
+
+	//绘制树冠
+	context.beginPath();
+
+	context.moveTo(-25,-50);
+	context.lineTo(-10,-80);
+	context.lineTo(-20,-80);
+	context.lineTo(-5,-110);
+	context.lineTo(-15,-110);
+
+	//树的顶点
+	context.lineTo(0,-150);
+
+	context.lineTo(15,-110);
+	context.lineTo(5,-110);
+	context.lineTo(20,-80);
+	context.lineTo(10,-80);
+	context.lineTo(25,-50);
+
+	//闭合路径
+	context.closePath();
+}
+
+var canvas=document.getElementById("graph");
+var context=canvas.getContext("2d");
+context.save();
+context.translate(25,200);
+
+createCanopyPath(context);
+context.stroke();
+
+context.restore();
+
+context.fillStyle="#663300";
+context.fill();
+</script>
+</html>

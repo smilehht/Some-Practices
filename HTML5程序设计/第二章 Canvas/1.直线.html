@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="graph" style="width:300px;height:300px;"></canvas>
+</body>
+<script type="text/javascript">
+	function drawLine(){
+		var canvas=document.getElementById("graph");
+		var context=canvas.getContext("2d");
+
+		//用绝对坐标创建一条路径
+		context.beginPath();
+
+		context.moveTo(0,0);
+		context.lineTo(140,70);
+
+		//将这条直线绘制到canvas上
+		context.stroke();
+	}
+
+	window.addEventListener("load",drawLine,true);
+</script>
+</html>

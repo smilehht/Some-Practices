@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制图案小练习</title>
+</head>
+<body><!-- style="width:500px;height:500px;" --><!-- style="border:1px solid #000; width:800px;height:600px;" -->
+	<canvas id="pic" style="width:800px;margin:40px auto;"  ></canvas>
+</body>
+<script>
+
+//绘制小房子
+function createGraph(context){
+
+	//绘制起点
+	// context.beginPath();
+
+	context.lineWidth=8;
+	context.moveTo(-25,25);
+	context.lineTo(100,-100);
+	context.lineTo(200,0);
+	context.lineTo(300,-100);
+	context.lineTo(425,25);
+
+	context.moveTo(400,0);
+
+	context.lineTo(400,200);
+	context.lineTo(0,200);
+
+	context.lineTo(0,0);
+
+	context.moveTo(75,50);
+	context.lineTo(125,50);
+	context.lineTo(125,100);
+	context.lineTo(75,100);
+	context.lineTo(75,50);
+
+
+	context.moveTo(75,75);
+	context.lineTo(125,75);
+	context.moveTo(100,50);
+	context.lineTo(100,100);
+
+	// //绘制闭合路径
+	// context.closePath();
+}
+
+//绘制树木
+function createCanopyPath(context){
+
+	//绘制树冠
+	context.beginPath();
+
+	context.lineWidth=8;
+	//绘制树木
+	context.moveTo(620,0);
+	context.lineTo(635,30);
+	context.lineTo(625,30);
+	context.lineTo(640,60);
+	context.lineTo(630,60);
+
+	context.lineTo(650,90);
+	context.lineTo(640,90);
+	context.lineTo(660,120);
+
+	context.lineTo(630,120);
+	context.lineTo(630,190);
+	context.lineTo(610,190);
+
+	context.lineTo(610,120);
+
+
+	context.lineTo(580,120);
+
+
+	context.lineTo(600,90);
+	context.lineTo(590,90);
+
+	// context.lineTo(60,60);
+
+	context.lineTo(610,60);
+	context.lineTo(600,60);
+	context.lineTo(615,30);
+	context.lineTo(605,30);
+	context.lineTo(620,0);
+
+
+	//颜色填充
+	context.fillStyle="green";
+	context.fill();
+
+
+	//闭合路径
+	context.closePath();
+}
+
+
+	function draw(canvas){
+		var context=canvas.getContext("2d");
+
+		context.save();
+
+		context.translate(100,120);
+		// context.lineWidth=8;
+		// context.lineJoin="round";
+		// context.lineJoin="bevel";
+		// context.lineJoin="miter";
+		context.strokeStyle="green";
+
+		// context.lineCap="butt";
+		// context.lineCap="square";
+		context.lineCap="round";
+
+		createCanopyPath(context);
+		createGraph(context);
+
+		context.stroke();
+		context.restore();
+
+	}
+
+	var canvas=document.getElementById("pic");
+	canvas.width=800;
+	canvas.height=400;
+	draw(canvas);
+
+</script>
+</html>
