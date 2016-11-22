@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	#box{
+		/*可以被继承的属性*/
+		line-height:30px;
+		color:red;
+	}
+	p{
+		border:solid 1px red;
+	}
+	ul{
+		/*用于去掉li上因display:inline-block而引起的空隙;*/
+		/*font-size:0;*/
+		/*letter-spacing:-2em;*/
+		/*word-spacing:-2rem;*/
+	}
+	li{
+		width:200px;
+		height:300px;
+		background:red;
+		display:inline-block;
+		margin-right:-8px;
+	}
+	</style>
+</head>
+<body>
+	<div id="box" tag="1234">111
+	<p>2222</p></div>111
+	<ul>
+		<li></li>
+
+		<li></li>
+
+		<li></li>
+	</ul>
+</body>
+<script>
+	var oDiv=document.getElementById("box");
+	console.log(oDiv.attributes);
+	// var name=null;
+	// if(null){
+	// 	console.log("1");
+	// }
+	// else{
+	// 	console.log("2");
+	// }
+</script>
+</html>
