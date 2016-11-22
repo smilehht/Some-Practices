@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			height:2000px;
+		}
+		.father1,.father2,.father3{
+			width:500px;
+			height:300px;
+
+		}
+		.father1{
+			/*position:absolute;
+			top:10px;
+			right:20px;*/
+			background:gray;
+		}
+		.father2{
+			position:absolute;
+			top:150px;
+			left:150px;
+			background:blue;
+		}
+		.father3{
+			position:absolute;
+			top:500px;
+			left:100px;
+			background:red;
+		}
+		div>div{
+			width:100px;
+			height:100px;
+			background:green;
+		}
+		.child1{
+			position:fixed;
+			top:100px;
+			left:100px;
+		}
+		.child2{
+			position:absolute;
+			top:10px;
+			right:20px;
+		}
+		.child3{
+			position:relative;
+			top:20px;
+			left:20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father1">
+		<div class="child1"></div>
+	</div>
+	<div class="father2">
+		<div class="child2"></div>
+	</div>
+	<div class="father3">
+		<div class="child3"></div>
+	</div>
+</body>
+</html>
