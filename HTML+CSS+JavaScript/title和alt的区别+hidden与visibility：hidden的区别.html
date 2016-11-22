@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			height:200px;
+			width:200px;
+			background:gray;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"  style="border:2px dotted green;">111</div>
+	<div id="box" style="visibility: hidden;" style="border:2px dotted green;">111</div>
+	<img src="" alt="空图片" title="img">
+	<ul>
+		<li>222</li>
+		<p>111</p>
+	</ul>
+</body>
+<script>
+	var odiv=document.getElementById("box");
+	console.log(odiv.style.borderColor);
+</script>
+</html>
