@@ -39,6 +39,7 @@
 <body>
 	<div id="addoverlay" class="mian">
 		<h1 >点我加遮罩</h1>
+			<p>用户名：<input type="text" placeholder="请输入用户名"></p>
 	</div>
 	<div id="overlay" class="">
 		<div class="login">
@@ -60,12 +61,13 @@
 		overlay.style.display="block";
 		overlay.setAttribute("class","overlay");
 	}
-	overlay.onclick=function(ev){
-		var ev=ev||event;
-		if(ev.target==ev.currentTarget){
-			// this.setAttribute("class","");
-			this.style.display="none";
-		}
-	}
+	//让遮罩消失
+	// overlay.onclick=function(ev){
+	// 	var ev=ev||event;
+	// 	if(ev.target==ev.currentTarget){
+	// 		// this.setAttribute("class","");
+	// 		this.style.display="none";
+	// 	}
+	// }
 </script>
 </html>

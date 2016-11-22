@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>遮罩的实现</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		.box1{
+			width:500px;
+			height:300px;
+			padding:20px;
+			border:1px solid green;
+			background:#CAA06B;
+		}
+		.mask{
+           	position: absolute;  
+		    top:0;
+		    left:0;
+			width:542px;
+			height:342px;
+		    background: rgba(0,0,0,0.5);
+		}
+	</style>
+</head>
+<body>
+		<div id="mask" class="">
+		</div>
+		<div class="box1 ">
+			<p>
+				<label for="name">登录名：</label>
+				<input type="text" name="name">
+			</p>
+			<p>
+				<label for="password">密码：</label>
+				<input type="password" name="password">
+			</p>
+			<input type="submit" value="提交" >
+		</div>
+		<input type="button" id="button" value="添加遮罩">
+
+</body>
+<script src="jquery.js"></script>
+<script>
+	$(function(){
+		$("#button").click(function(){
+			$("#mask").addClass("mask");
+		});
+	});
+</script>
+</html>
