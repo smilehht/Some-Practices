@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>防抖函数</title>
+</head>
+<body style="height:2000px;">
+	
+</body>
+<script>
+	var body=document.body;
+	var i=0;
+	var timer;
+	window.onscroll=function(){
+		clearTimeout(timer);
+		 timer=setTimeout(function(){
+			console.log(i++);
+		},200);
+		 console.log("timer:"+(timer));
+	}
+</script>
+</html>
