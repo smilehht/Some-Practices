@@ -11,12 +11,16 @@
 	var body=document.body;
 	var i=0;
 	var timer;
-	window.onscroll=function(){
+	function debounce(func,wait){
+
+	}
+	function(){
 		clearTimeout(timer);
 		 timer=setTimeout(function(){
 			console.log(i++);
 		},200);
 		 console.log("timer:"+(timer));
 	}
+	window.addEventListener("scroll",debounce(fun,300));
 </script>
 </html>

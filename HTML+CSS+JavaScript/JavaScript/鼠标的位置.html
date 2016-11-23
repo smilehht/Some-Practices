@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标的位置</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		body{
+			height:2000px;
+		}
+		.box{
+			overflow: auto;
+			width:500px;
+			height:500px;
+			border:solid 3px green;
+			margin:20px;
+		}
+		.box div{
+			width:800px;
+			height:800px;
+			margin:20px auto;
+		}
+		.box1{
+			background:blue;
+		}
+		.box2{
+			background:green;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="box">
+		<div class="box1" id="box1"></div>
+		<div class="box2" id="box2"></div>
+	</div>
+</body>
+<script>
+	// window.addEventListener("click",function(ev){
+	// 	var ev=ev||window.event;
+	// 	console.log("screenX:"+ev.screenX+",screenY:"+ev.screenY);
+	// 	console.log("clientX:"+ev.clientX+",clientY:"+ev.clientY);
+	// 	console.log("offsetX:"+ev.offsetX+",offsetY:"+ev.offsetY);
+	// 	console.log("pageX:"+ev.pageX+",pageY:"+ev.pageY);
+	// },false);
+
+	document.getElementById("box").addEventListener("click",function(ev){
+		var ev=ev||window.event;
+		// 相对于屏幕的左上角的偏移量
+		console.log("screenX:"+ev.screenX+",screenY:"+ev.screenY);
+		// 相对于浏览器窗口左上角的偏移（会随滚动条滚动）
+		console.log("clientX:"+ev.clientX+",clientY:"+ev.clientY);
+		// 相对于浏览器窗口左上角的偏移量(不会随滚动条滚动)
+		console.log("pageX:"+ev.pageX+",pageY:"+ev.pageY);
+		// 相对于元素左上角的偏移量
+		console.log("offsetX:"+ev.offsetX+",offsetY:"+ev.offsetY);
+	},false);
+</script>
+</html>
