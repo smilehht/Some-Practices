@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body style="height:1000px;">
+	
+</body>
+<script>
+var i=0;
+var j=0;
+function debounce(func, wait, immediate) {
+    // 定时器变量
+    var timeout;
+    console.log("j:"+(j++));
+    return function() {
+        // 每次触发 scroll handler 时先清除定时器
+        clearTimeout(timeout);
+        // 指定 xx ms 后触发真正想进行的操作 handler
+        timeout = setTimeout(func, wait);
+    };
+};
+
+// 实际想绑定在 scroll 事件上的 handler
+function realFunc(){
+    console.log("i:"+(i++));		//事件触发后的操作
+}
+
+// 采用了防抖动
+window.addEventListener('scroll',debounce(realFunc,500));
+
+</script>
+</html>
