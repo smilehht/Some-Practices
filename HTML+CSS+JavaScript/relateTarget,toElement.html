@@ -42,10 +42,6 @@
 
 	  // 判断鼠标是移出元素还是移到子元素，relatedTarget：返回与事件的目标节点相关的节点。
 	  var relatedTarget = event.relatedTarget || e.toElement;	//toElement为了兼容IE
-	  // while (relatedTarget !== target
-	  //   && relatedTarget.nodeName.toUpperCase() !== 'BODY') {
-	  //   relatedTarget = relatedTarget.parentNode;
-	  // }
 
 	  // 如果相等，说明鼠标在元素内部移动
 	  if (relatedTarget === target) {
@@ -53,8 +49,6 @@
 	    return;
 	  }
 
-	  // 执行需要操作
-	  //alert('鼠标移出');
 
 	}
 </script>
