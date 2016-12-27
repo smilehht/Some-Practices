@@ -1,0 +1,1 @@
+document.write("看看他如何工作");
