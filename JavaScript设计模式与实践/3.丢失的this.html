@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>丢失的this</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var obj={
+		name:"hht",
+		getName:function(){
+			return this.name;
+		}
+	};
+
+	var getName1=obj.getName;
+	console.log(obj.getName());
+	console.log(getName1());//第一次加载页面的时候输出为空，再刷新页面的话，会输出值，这是为什么呢？
+	window.name="hzr";
+	console.log(getName1());
+</script>
+</html>

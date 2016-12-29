@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Function.prototype.bind</title>
+</head>
+<body>
+	
+</body>
+<script>
+	Function.prototype.bind=function(context){
+		var self=this;
+		console.log(this);
+		console.log(context);
+		return function(){
+			return self.apply(context,arguments);
+		}
+	}
+
+	var obj={
+		name:"hht"
+	}
+
+	var func=function(){
+		console.log(this.name);
+	}.bind(obj);
+
+	func();
+</script>
+</html>
