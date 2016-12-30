@@ -1,21 +1,32 @@
 *{
-	margin:none;
-	padding:none;
+	margin:0;
+	padding:0;
 }
 
-ul{
-	position:fixed;
-	top:50px;
-	right:20px;
-	width:250px;
-	height:300px;
-	background: #C7CCD0;
-	border:1px solid blue;
+/*li,ul{
+	list-style:none;
+}*/
+
+a{
+	text-decoration: none;
 }
+
+.navi{
+	position:fixed;
+	top:50%;
+	right:20px;
+	width:150px;
+	height:300px;
+	margin-top:-150px;
+	/*background: #C7CCD0;*/
+	/*border:1px solid blue;*/
+}
+
+
 
 .items{
-	height:15%;
+	height:40px;
 	width:100%;
 	line-height:15%;
-	margin:5% 0px;
+	/*margin:5% 0px;*/
 }
