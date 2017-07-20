@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+</body>
+<script>
+    var isFull = false;
+    // 找到正确的方法  
+    function launchFullScreen(element) {  
+        if(element.requestFullScreen) {  
+            element.requestFullScreen();  
+        } else if(element.mozRequestFullScreen) {  
+            element.mozRequestFullScreen();  
+        } else if(element.webkitRequestFullScreen) {  
+            element.webkitRequestFullScreen();  
+        }  
+    }
+    function cancelFullscreen() {  
+        if (document.cancelFullScreen) {  
+            document.cancelFullScreen();  
+        } else if(document.mozCancelFullScreen) {  
+            document.mozCancelFullScreen();  
+        } else if(document.webkitCancelFullScreen) {  
+            document.webkitCancelFullScreen();  
+        }  
+    } 
+    document.body.onclick = function() {
+        if (isFull) {
+            cancelFullscreen();
+            isFull = !isFull;
+        } else {
+            launchFullScreen(document.documentElement); // 整个页面
+            isFull = !isFull;
+        }
+    }
+</script>
+</html>
