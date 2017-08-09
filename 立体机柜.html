@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>立体机柜</title>
+    <style>
+        .container{
+            margin:200px 1px;
+            /*width:500px;*/
+            position: relative;
+            float: left;
+        }
+        .container:hover {
+            /*box-shadow: 5px 5px green inset;*/
+            box-shadow: red 0px 0px 15px 15px inset;
+        }
+        .surface{
+            width:40px;
+            height: 100px;
+            opacity: 0.8;   /*对于其他浏览器需要做兼容*/
+            background: #91C7AE;
+            border:1px solid #000;
+        }
+        #surface1{
+           
+        }
+        #surface2{
+            width: 25px;
+            transform: skew(0,45deg);
+            /*transform: translate(-100px, 0);*/
+            position: absolute;
+            top: 14px;
+            left: 43px;
+        }
+        #surface3{
+            position: absolute;
+            top: 103px;
+            left: 13px;
+            height: 25px;
+            transform: skewX(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="surface" id="surface1"></div>
+        <div class="surface" id="surface2"></div>
+        <div class="surface" id="surface3"></div>
+    </div>
+    <div class="container">
+        <div class="surface" id="surface1"></div>
+        <div class="surface" id="surface2"></div>
+        <div class="surface" id="surface3"></div>
+    </div>
+    <div class="container">
+        <div class="surface" id="surface1"></div>
+        <div class="surface" id="surface2"></div>
+        <div class="surface" id="surface3"></div>
+    </div>
+    <div class="container">
+        <div class="surface" id="surface1"></div>
+        <div class="surface" id="surface2"></div>
+        <div class="surface" id="surface3"></div>
+    </div>
+</body>
+</html>
