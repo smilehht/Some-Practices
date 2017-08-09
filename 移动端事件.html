@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 300px;
+            height: 300px;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+<script>
+    var div = document.getElementById('div1');
+    console.log(div);
+    div.ontouchstart = function(e) {
+        var ev = e || widndow.event;
+        alert('touchstart', ev);
+        console.log('touchstart', ev);
+        this.innerHTML = 'touchstart';
+    }
+    div.ontouchmove = function(e) {
+        var ev = e || widndow.event;
+        alert('touchmove', ev);
+        console.log('touchmove', ev);
+        this.innerHTML = 'touchmove';
+    }
+    div.ontouchend = function(e) {
+        var ev = e || widndow.event;
+        alert('touchend', ev);
+        console.log('touchend', ev);
+        this.innerHTML = 'touchend';
+    }
+</script>
+</html>
